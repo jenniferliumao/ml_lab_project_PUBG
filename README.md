@@ -3,7 +3,7 @@ MSDS699 final project
 Group Member: Peng Liu, Xuxu Pan, Min Che
 
 ### What is PUBG? 🦄
-It’s short for PlayerUknown’s BattleGrounds, a very popular battle royale-style video game. In this game, you are dropped onto an island without anything in hand, but with 99 other players most of whom are your enemies. You have to explore and fight other players until only one is left standing. Meanwhile, the playzone continues to shrink until the last minute of the game. 
+It’s short for PlayerUknown’s BattleGrounds, a very popular battle royale-style video game. In this game, you are dropped onto an island without anything in hand, but with 99 enemies around. You have to explore and fight other players until only one is left standing. Meanwhile, the playzone continues to shrink until the last minute of the game. 
 
 # Project Goal
 The goal of this project is to predict the finish placement of the PlayerUknown’s BattleGrounds(PUBG) players.
@@ -26,10 +26,12 @@ The goal of this project is to predict the finish placement of the PlayerUknown�
 We added 2 new features: player per match and player per group. To eliminate possible outliers, we dropped matches that have less than 80 players or have group with more than 4 players. We also down sample the data to 165 thousand rows and dropped 4 highly related features. Finally, we made a train-validation-test split.
 
 # Modeling
-We fitted 3 models: linear regression without tuning as our baseline, decision tree and random forest, with hyperparameters tuned by RandomizedSearchCV. We choose Median absolute error as our north star metrics because it is more robust to outliers than RMSE.
+We made a pipeline to fitted 3 models: linear regression without tuning as our baseline, decision tree and random forest, with hyperparameters tuned by RandomizedSearchCV. We choose Median absolute error as our north star metrics because it is more robust to outliers than RMSE.
 
 # Summary
-Random forest model has the lowest MEDAE (around 0.036) on the validation set. So, we decided to choose random forest model as our final model. The tuned random forest model selected about 10 important features out of 24. Top three important features include killPlace, which is the ranking of number of enemies killed by the player in a match, walkDistance, which is how far the player walked in a match and kills, which is the number of enemies killed by the player. Seems that some of the important features are highly correlate with each other.
+Random forest model has the lowest MEDAE (around 0.036) on the validation set. The decision tree model performs pretty well on the training set, but much worse on the validation set, meaning that it is a bit overfitted. So, we decided to choose random forest model as our final model. 
+
+The tuned random forest model selected about 10 important features out of 24. Top three important features include 'killPlace', which is the ranking of number of enemies killed by the player in a match, 'walkDistance', which is how far the player walked in a match, and 'kills', which is the number of enemies killed by the player. 
 
 # Takeaways
 - Technical key takeaways:
