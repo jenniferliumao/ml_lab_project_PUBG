@@ -31,7 +31,7 @@ We fitted 3 models: linear regression without tuning as our baseline, decision t
 # Summary
 - Random forest model had the lowest MEDAE on the validation set. Decision tree worked very good on training dataset, but no as well on validation dataset, indicating it had the problem of overfiting. So we chose random forest model because the performance on training and validation datasets were comparable.
 - The random forest model had MEDAE of 0.035 on validation set, which means that we are able to predict the finish placement of PUBG players in a match with an median error of about 3.5%.
-- The tuned random forest model selected about 10 important features out of 24. Top three important features include killPlace, that is the ranking of number of enemies killed by the player in a match, walkDistance, that is how far the player walked in a match and kills, that’s the number of enemies killed by the player.
+- The tuned random forest model selected about 10 important features out of 24. Top three important features include 'killPlace', that is the ranking of number of enemies killed by the player in a match, 'walkDistance', that is how far the player walked in a match, and 'kills', that’s the number of enemies killed by the player.
 
 # Takeaways
 - Technical key takeaways:
