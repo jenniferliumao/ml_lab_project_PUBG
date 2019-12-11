@@ -29,7 +29,9 @@ We added 2 new features: player per match and player per group. To eliminate pos
 We fitted 3 models: linear regression without tuning as our baseline, decision tree and random forest, with hyperparameters tuned by RandomizedSearchCV. We choose Median absolute error as our north star metrics because it is more robust to outliers than RMSE.
 
 # Summary
-Random forest model has the lowest MEDAE (around 0.036) on the validation set. So, we decided to choose random forest model as our final model. The tuned random forest model selected about 10 important features out of 24. Top three important features include killPlace, which is the ranking of number of enemies killed by the player in a match, walkDistance, which is how far the player walked in a match and kills, which is the number of enemies killed by the player. Seems that some of the important features are highly correlate with each other.
+- Random forest model had the lowest MEDAE on the validation set. Decision tree worked very good on training dataset, but no as well on validation dataset, indicating it had the problem of overfiting. So we chose random forest model because the performance on training and validation datasets were comparable.
+- The random forest model had MEDAE of 0.035 on validation set, which means that we are able to predict the finish placement of PUBG players in a match with an median error of about 3.5%.
+- The tuned random forest model selected about 10 important features out of 24. Top three important features include killPlace, that is the ranking of number of enemies killed by the player in a match, walkDistance, that is how far the player walked in a match and kills, that’s the number of enemies killed by the player.
 
 # Takeaways
 - Technical key takeaways:
