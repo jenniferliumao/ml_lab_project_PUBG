@@ -17,4 +17,5 @@ The goal of this project is to predict the finish placement of the PlayerUknownâ
 - Conclusion
 - Future works
 
-# 
+# Data Description
+Data source: https://www.kaggle.com/c/pubg-finish-placement-prediction/data
